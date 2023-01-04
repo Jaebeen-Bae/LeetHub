@@ -6,10 +6,10 @@ class Solution {
     
     private int dfs(Set<String> set, int idx, String s) {
         if (idx >= s.length()) return 0;
-        int res = -1;  // did not find method to split;
+        int res = -1;
         for (int i = idx + 1; i <= s.length(); i++) {
             String sub = s.substring(idx, i);
-            if (!set.add(sub)) continue; //already contains sub
+            if (!set.add(sub)) continue;
             int next = dfs(set, i, s);
             if (next >= 0) res = Math.max(res, next + 1);
             set.remove(sub);
